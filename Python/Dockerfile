@@ -18,10 +18,10 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 	&& echo 'format = columns' >> ~/.pip/pip.conf \
 	&& pip install virtualenvwrapper \
 	&& echo 'export WORKON_HOME=$HOME/.virtualenvs' >> ~/.zshrc \
-	&& echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.zshrc 
-	
+	&& echo 'source /usr/local/bin/virtualenvwrapper.sh' >> ~/.zshrc
 
-# for python3.6 
+
+# for python3.6
 # if you are use 16.04 install python3.6 as follows.
 
 # apt-get install software-properties-common
@@ -31,4 +31,4 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list \
 
 
 # Define define command
-CMD ["bash"]
+CMD ["zsh"]

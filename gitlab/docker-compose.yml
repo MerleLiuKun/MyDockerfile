@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  web:
+    image: 'gitlab/gitlab-ce:latest'
+    container_name: gitlab
+    restart: always
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/etc/gitlab/omnibus_config.rb')"
+    ports:
+      - '10010:10010'
+      - '10011:22'
+    volumes:
+      - './config/omnibus_config.rb:/etc/gitlab/omnibus_config.rb'
+      - '/mnt/gitlab/src/config:/etc/gitlab'
+      - '/mnt/gitlab/src/logs:/var/log/gitlab'
+      - '/mnt/gitlab/src/data:/var/opt/gitlab'
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
